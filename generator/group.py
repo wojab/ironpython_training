@@ -7,10 +7,9 @@ import sys
 import time
 #maszyna wirtuanla .net
 import clr
-clr.AddReferenceByName("visual studio > wkleic: gacutil /l Microsoft.Office.Interop.Excel)
+clr.AddReferenceByName("Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral,"
+                       " PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL")
 from Microsoft.Office.Interop import Excel
-
-
 
 try:
     opts, args = getopt.getopt(sys.argv[1:], "n:f:", ["number of groups", "file"])
@@ -43,7 +42,7 @@ file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", f)
 excel = Excel.ApplicationClass()
 excel.Visible = True
 
-workbook = excel.Woorkbooks.Add()
+workbook = excel.Workbooks.Add()
 sheet = workbook.Activesheet
 
 for i in range (len(testdata)):
